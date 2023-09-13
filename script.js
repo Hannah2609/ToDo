@@ -14,7 +14,6 @@ function displayDate() {
   document.querySelector(".todoBtn").classList.add("activeBtn");
   document.querySelector(".doneBtn").classList.add("inActiveBtn");
 }
-//   changeBtn();
 
 document.querySelector(".doneBtn").addEventListener("click", showDoneList);
 document.querySelector(".todoBtn").addEventListener("click", showToDoList);
@@ -23,7 +22,7 @@ addBtn.addEventListener("click", addTask);
 
 function addTask() {
   if (input.value === "") {
-    return;
+    alert("Please write something");
   } else {
     // vi opretter et nyt list element
     let li = document.createElement("li");
@@ -57,36 +56,26 @@ function clickTask(event) {
     gemData();
 
     if (event.target.classList.contains("checked")) {
-    
-        setTimeout(() => {
-          done.appendChild(event.target);
-        }, 300);
-  
+      setTimeout(() => {
+        done.appendChild(event.target);
+      }, 300);
     } else {
-
-        setTimeout(() => {
-          list.appendChild(event.target);
-        }, 300);
-  
+      setTimeout(() => {
+        list.appendChild(event.target);
+      }, 300);
     }
     gemData();
   } else if (event.target.tagName === "SPAN") {
-    event.target.parentElement.remove();
-    console.log("delete task");
-    gemData();
+    const confirmation = confirm("Delete the task");
+    if (confirmation) {
+      event.target.parentElement.remove();
+      console.log("delete task");
+      gemData();
+    }
   }
 
   gemData();
-  //   changeBtn();
 }
-
-// function changeBtn() {
-//    if (done.classList.contains("hidden")) {
-//      document.querySelector(".doneBtn").classList.add("inActiveBtn");
-//    } else if (list.classList.contains("hidden")) {
-//      document.querySelector(".todoBtn").classList.add("activeBtn");
-//    }
-// }
 
 function gemData() {
   localStorage.setItem("data", list.innerHTML);

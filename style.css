@@ -6,14 +6,17 @@
 main {
   width: 100vw;
   min-height: 100vh;
-  background-color:  #e8c6da;
+  padding: 20px;
+  background-color:  #ced8fd;
   display: grid;
   place-content: center;
 }
 
+@media (max-width: 510px) {
+    
 .todo {
-  max-width: 500px;
-  min-height: 500px;
+  width: 350px;
+  min-height: 400px;
   background-color: white;
   padding: 40px 40px 80px;
   border-radius: 20px;
@@ -21,44 +24,25 @@ main {
 }
 
 .done {
-  max-width: 500px;
+  width: 350px;
   background-color: white;
   padding: 40px 40px 80px;
   border-radius: 20px;
-  min-height: 500px;
+  min-height: 400px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 }
-.hidden {
-  display: none;
-}
-.todo h2 {
-  color: rgb(5, 5, 145);
-  margin-bottom: 5px;
-}
-.done h2 {
-  color: rgb(5, 5, 145);
-  margin-bottom: 5px;
-  width: 309px;
-}
 
-h3 {
-  margin-bottom: 20px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #9393ce;
-}
 
 .input_button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
   border-radius: 20px;
   background-color: #eeeeee;
 }
+
 .input_button input {
-  padding: 10px 30px;
-  /* padding-left: 10px; */
+  padding: 10px 10px;
   border: none;
   background-color: transparent;
   font-size: 13px;
@@ -72,6 +56,80 @@ h3 {
   border-radius: 20px;
   padding: 10px 30px;
   cursor: pointer;
+}
+
+
+}
+
+@media (min-width: 510px) {
+
+.todo {
+  width: 500px;
+  min-height: 400px;
+  background-color: white;
+  padding: 40px 40px 80px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+.done {
+  width: 500px;
+  background-color: white;
+  padding: 40px 40px 80px;
+  border-radius: 20px;
+  min-height: 400px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+
+.input_button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+  background-color: #eeeeee;
+}
+
+.input_button input {
+  padding: 10px 30px;
+  padding-right: 150px;
+  border: none;
+  background-color: transparent;
+  font-size: 13px;
+  border-radius: 20px;
+}
+.input_button button {
+  background-color: #050591;
+  color: #eeeeee;
+  font-size: 14px;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
+    
+}
+
+
+.hidden {
+  display: none;
+}
+.todo h2 {
+  color: rgb(5, 5, 145);
+  margin-bottom: 5px;
+}
+.done h2 {
+  color: rgb(5, 5, 145);
+  margin-bottom: 5px;
+  max-width: 309px;
+}
+
+h3 {
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #9393ce;
 }
 
 ul {
@@ -101,6 +159,10 @@ li::before {
   background-position: center;
   top: 10px;
   left: 2px;
+}
+
+li:hover{
+    color: #050591;
 }
 
 .checked {
