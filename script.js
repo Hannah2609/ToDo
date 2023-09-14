@@ -31,24 +31,16 @@ function addTask() {
   if (input.value === "") {
     alert("Please write something");
   } else {
-    // vi opretter et nyt list element
     let li = document.createElement("li");
-    // vores list element skal indeholde det vi har intastet i vores input felt
     li.innerHTML = input.value;
-    // tilføjer elementet i vores liste
 
-    // opretter vores kryds i elementet
     let span = document.createElement("span");
     span.innerHTML = "\u00d7";
 
     li.appendChild(span);
     list.appendChild(li);
   }
-
-  // vi skal slette vores value i input når vi har sendt det til en "li"
   input.value = "";
-
-  // gemmer vores data
   gemData();
 }
 
@@ -84,18 +76,6 @@ function clickTask(event) {
   gemData();
 }
 
-function gemData() {
-  localStorage.setItem("data", list.innerHTML);
-  localStorage.setItem("dataDone", done.innerHTML);
-}
-
-function showData() {
-  list.innerHTML = localStorage.getItem("data");
-  done.innerHTML = localStorage.getItem("dataDone");
-}
-
-showData();
-
 function showDoneList() {
   document.querySelector(".done").classList.remove("hidden");
   document.querySelector(".todo").classList.add("hidden");
@@ -113,3 +93,15 @@ function showToDoList() {
   document.querySelector(".todoBtn").classList.add("activeBtn");
   document.querySelector(".todoBtn").classList.add("inActiveBtn");
 }
+
+function gemData() {
+  localStorage.setItem("data", list.innerHTML);
+  localStorage.setItem("dataDone", done.innerHTML);
+}
+
+function showData() {
+  list.innerHTML = localStorage.getItem("data");
+  done.innerHTML = localStorage.getItem("dataDone");
+}
+
+showData();
