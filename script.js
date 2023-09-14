@@ -41,7 +41,7 @@ function addTask() {
     list.appendChild(li);
   }
   input.value = "";
-  gemData();
+  saveData();
 }
 
 list.addEventListener("click", clickTask);
@@ -52,7 +52,7 @@ function clickTask(event) {
   if (event.target.tagName === "LI") {
     console.log("task complete / uncomplete");
     event.target.classList.toggle("checked");
-    gemData();
+    saveData();
 
     if (event.target.classList.contains("checked")) {
       setTimeout(() => {
@@ -69,11 +69,11 @@ function clickTask(event) {
     if (confirmation) {
       event.target.parentElement.remove();
       console.log("delete task");
-      gemData();
+      saveData();
     }
   }
 
-  gemData();
+  saveData();
 }
 
 function showDoneList() {
@@ -94,7 +94,7 @@ function showToDoList() {
   document.querySelector(".todoBtn").classList.add("inActiveBtn");
 }
 
-function gemData() {
+function saveData() {
   localStorage.setItem("data", list.innerHTML);
   localStorage.setItem("dataDone", done.innerHTML);
 }
