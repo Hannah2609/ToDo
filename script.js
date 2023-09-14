@@ -19,6 +19,13 @@ document.querySelector(".doneBtn").addEventListener("click", showDoneList);
 document.querySelector(".todoBtn").addEventListener("click", showToDoList);
 
 addBtn.addEventListener("click", addTask);
+input.addEventListener("keypress", enterTask);
+
+function enterTask(evt){
+    if (evt.keyCode === 13) {
+       addTask();
+    }
+}
 
 function addTask() {
   if (input.value === "") {
