@@ -63,7 +63,7 @@ function clickTask(event) {
         list.appendChild(event.target);
       }, 300);
     }
-    gemData();
+    saveData();
   } else if (event.target.tagName === "SPAN") {
     const confirmation = confirm("Delete the task");
     if (confirmation) {
